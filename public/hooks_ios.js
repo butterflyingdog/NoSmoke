@@ -50,7 +50,7 @@ console.log("node   digest: " + node.digest );
 
     let appRect  = jsonpath.query(eval('(' + sourceValue  + ')'), '$.rect')[0];
 
-    console.log("app.rect=" + JSON.stringify ( appRect) );
+    // console.log("app.rect=" + JSON.stringify ( appRect) );
     let StaticTexts = jsonpath.query(eval('(' + sourceValue  + ')'), '$..children[?(@.type=="StaticText" || @.type=="Button")]');
 
   //  let NavBarStaticText=[];
@@ -93,7 +93,7 @@ console.log("node   digest: " + node.digest );
     //console.log("center Static " + JSON.stringify(tempStaticText));
     node.digest = labeldigest +"_"+node.digest ;
   }
-    console.log(  "node.digest = " + node.digest  );
+  //  console.log(  "node.digest = " + node.digest  );
 
 
 
