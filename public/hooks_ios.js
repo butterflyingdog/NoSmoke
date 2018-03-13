@@ -122,12 +122,12 @@ Hooks.prototype.sortActionPriority = function(actions, crawler) {
   actions.sort(function(a,b){
     let v1,v2;
     if(a.source.label || a.source.name || a.source.value || a.source.text ) {
-      v1=1;
+      v1=GetRandomNum(1,100);
     }else{
       v1=0;
     }
     if(b.source.label || b.source.name || b.source.value || b.source.text ){
-      v2=1;
+      v2=GetRandomNum(1,100);
     }else{
       v2=0;
     }
@@ -165,5 +165,12 @@ Hooks.prototype.afterActionPerformed = function(action, crawler) {
 Hooks.prototype.insertTabNode = function (sourceArray, crawler) {
   return false;
 };
+
+function GetRandomNum(Min,Max)
+{
+var Range = Max - Min;
+var Rand = Math.random();
+return(Min + Math.round(Rand * Range));
+}
 
 exports.Hooks = Hooks;
