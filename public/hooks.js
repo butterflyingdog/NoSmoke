@@ -54,4 +54,11 @@ Hooks.prototype.insertTabNode = function (sourceArray, crawler) {
   return false;
 };
 
+Hooks.prototype.findBackAction = function (actions, config){
+  return null;
+};
+
+Hooks.prototype.isBackAction = function (action, config) {
+  return false;
+}
 exports.Hooks = Hooks;

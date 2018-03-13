@@ -122,7 +122,10 @@ Hooks.prototype.sortActionPriority = function(actions, crawler) {
   actions.sort(function(a,b){
     let v1,v2;
     if(a.source.label || a.source.name || a.source.value || a.source.text ) {
-      v1=GetRandomNum(1,100);
+      if (isBackAction(a))
+        v1 = 200;
+      else
+        v1 = GetRandomNum(1,100);
     }else{
       v1=0;
     }
@@ -173,4 +176,20 @@ var Rand = Math.random();
 return(Min + Math.round(Rand * Range));
 }
 
+
+Hooks.prototype.findBackAction = function (actions, config) {
+
+  for (let i in actions) {
+    if(isBackAction(actions[i], config))
+      return actions[i];
+  }
+  return null;
+};
+
+Hooks.prototype.isBackAction = function (action, config) {
+  let backAction= action.source.label || action.source.name || action.source.value || action.source.text;
+  if ( backAction && backAction === config.navigationBackKeyword[0] ) {
+    return true;
+  }
+}
 exports.Hooks = Hooks;
