@@ -39,22 +39,15 @@ crawlingConfig:
   targetElements:
       loginAccount:
         actionType  : 2
-        searchValue : 'please input username'
-        #searchValue : '统一认证号'
+        searchValue : '用户名'
         actionValue : ''
       loginPassword:
         actionType  : 2
-        searchValue : 'please input password'
-        #searchValue : '密码'
+        searchValue : '密码'
         actionValue : ''
       loginButton:
         actionType  : 1
-        searchValue : 'Login'
-        #searchValue : '登 录'
-      inputTelNo:
-          actionType  : 2
-          searchValue : '请输入手机号码'
-          actionValue : '13381151028'
+        searchValue : '登录'
       alertConfirm:
         actionType  : 1
         searchValue : 'yes|确定|取消|无线局域网与蜂窝移动网络|好|允许|ok'
