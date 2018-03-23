@@ -121,13 +121,23 @@ Hooks.prototype.sortActionPriority = function(actions, crawler) {
 
   actions.sort(function(a,b){
     let v1,v2;
-    if(a.source.label || a.source.name || a.source.value || a.source.text ) {
-      v1 = GetRandomNum(1,100);
+
+    if(!a.source.isHittable){
+        v1 = 0;
+    }else if( checkMatch(a.source, crawler.config.targetElements, crawler)){
+        v1 = 200;
+    }else if(a.source.label || a.source.name || a.source.value || a.source.text){
+        v1 = GetRandomNum(1,100);
     }else{
       v1=0;
     }
-    if(b.source.label || b.source.name || b.source.value || b.source.text ){
-      v2=GetRandomNum(1,100);
+
+    if(!b.source.isHittable){
+      v2 = 0;
+    }else  if(  checkMatch(b.source, crawler.config.targetElements, crawler) ){
+      v2 = 200;
+    }  else if (  b.source.label || b.source.name || b.source.value || b.source.text  ){
+      v2 = GetRandomNum(1,100);
     }else{
       v2=0;
     }
@@ -200,4 +210,13 @@ Hooks.prototype.isBackAction = function (action, config) {
     return true;
   }
 }
+function checkMatch(source, matches ,crawler ){
+  for (let match in matches) {
+    if (crawler.checkContentMatch(source, matches[match].searchValue, false)) {
+      return true;
+    }
+  }
+  return false;
+}
+
 exports.Hooks = Hooks;
