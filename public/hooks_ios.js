@@ -109,17 +109,8 @@ console.log("node   digest: " + node.digest );
  * */
 Hooks.prototype.sortActionPriority = function(actions, crawler) {
 
-  for(let i=0; i<actions.length; i++){
-    if (actions[i].source.type == "TextField" && actions[i].source.TextField_count) {
-      actions.splice(i,1);
-    }
-    if (this.isBackAction(actions[i], crawler.config)) {
-      crawler.currentNode.backAction = actions[i];
-      actions.splice(i,1);
-    }
-  }
-
   actions.sort(function(a,b){
+
     let v1,v2;
 
     if(!a.source.isHittable){
@@ -141,6 +132,7 @@ Hooks.prototype.sortActionPriority = function(actions, crawler) {
     }else{
       v2=0;
     }
+
     return v2-v1;
   });
   /*
@@ -187,6 +179,15 @@ Hooks.prototype.insertTabNode = function (sourceArray, crawler) {
   return false;
 };
 
+
+Hooks.prototype.checkNode = function (node, crawler) {
+  for (let i in  node.imagechecks ) {
+    console.log(node.digest +  ' check=' + JSON.stringify(node.imagechecks[i].source));
+
+  }
+  return false;
+};
+
 function GetRandomNum(Min,Max)
 {
 var Range = Max - Min;
@@ -194,22 +195,6 @@ var Rand = Math.random();
 return(Min + Math.round(Rand * Range));
 }
 
-
-Hooks.prototype.findBackAction = function (actions, config) {
-
-  for (let i in actions) {
-    if(isBackAction(actions[i], config))
-      return actions[i];
-  }
-  return null;
-};
-
-Hooks.prototype.isBackAction = function (action, config) {
-  let backAction= action.source.label || action.source.name || action.source.value || action.source.text;
-  if ( backAction && backAction === config.navigationBackKeyword[0] ) {
-    return true;
-  }
-}
 function checkMatch(source, matches ,crawler ){
   for (let match in matches) {
     if (crawler.checkContentMatch(source, matches[match].searchValue, false)) {
