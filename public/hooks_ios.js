@@ -179,15 +179,6 @@ Hooks.prototype.insertTabNode = function (sourceArray, crawler) {
   return false;
 };
 
-
-Hooks.prototype.checkNode = function (node, crawler) {
-  for (let i in  node.imagechecks ) {
-    console.log(node.digest +  ' check=' + JSON.stringify(node.imagechecks[i].source));
-
-  }
-  return false;
-};
-
 function GetRandomNum(Min,Max)
 {
 var Range = Max - Min;
