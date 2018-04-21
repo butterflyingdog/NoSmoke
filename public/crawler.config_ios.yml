@@ -25,7 +25,7 @@ desiredCapabilities:
   #bundleId: 'dev.com.icbc.Elife'
   #bundleId: 'dev.com.icbc.einvest'
   bundleId: 'com.apple.mobilesafari'
-  udid: '79b970d47e23c9c5073dfcd4446320b169886f15' #iphone7 plus
+
 
 #  Android Configuration
 #  platformName: 'android'
@@ -37,17 +37,6 @@ desiredCapabilities:
 crawlingConfig:
   platform: 'iOS'
   targetElements:
-      loginAccount:
-        actionType  : 2
-        searchValue : '用户名'
-        actionValue : ''
-      loginPassword:
-        actionType  : 2
-        searchValue : '密码'
-        actionValue : ''
-      loginButton:
-        actionType  : 1
-        searchValue : '登录'
       alertConfirm:
         actionType  : 1
         searchValue : 'yes|确定|取消|无线局域网与蜂窝移动网络|好|允许|ok'
