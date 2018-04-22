@@ -188,7 +188,7 @@ return(Min + Math.round(Rand * Range));
 
 function checkMatch(source, matches ,crawler ){
   for (let match in matches) {
-    if (crawler.checkContentMatch(source, matches[match].searchValue, true)) {
+    if (crawler.checkContentMatch(source, matches[match].searchValue, false)) {
       return true;
     }
   }
