@@ -40,7 +40,7 @@ crawlingConfig:
       alertConfirm:
         actionType  : 1
         searchValue : 'yes|确定|取消|无线局域网与蜂窝移动网络|好|允许|ok'
-  #asserts:
+  asserts:
   #  - type: 'regex'
   #    given: '我的账户'
   #  - type: 'regex'
@@ -50,7 +50,7 @@ crawlingConfig:
   clickTypes:
     - 'StaticText'
     - 'Button'
-    #- 'Image'
+    - 'Image'
   editTypes:
     - 'TextField'
     - 'SecureTextField'
