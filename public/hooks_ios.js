@@ -51,7 +51,7 @@ console.log("node   digest: " + node.digest );
     let appRect  = jsonpath.query(eval('(' + sourceValue  + ')'), '$.rect')[0];
 
     // console.log("app.rect=" + JSON.stringify ( appRect) );
-    let StaticTexts = jsonpath.query(eval('(' + sourceValue  + ')'), '$..children[?(@.type=="StaticText" || @.type=="Button")]');
+    let StaticTexts = jsonpath.query(eval('(' + sourceValue  + ')'), '$..children[?(@.type=="StaticText" || @.type=="Button" ||  @.type=="Other")]');
 
   //  let NavBarStaticText=[];
     let tempStaticText ;
@@ -77,7 +77,7 @@ console.log("node   digest: " + node.digest );
 
       */
       // get the several central staticTexts label as digest
-      if( centerY<20+44 && centerY>20
+      if( centerY<44+50 && centerY>20
           && StaticTexts[i].rect.x > appRect.width/4
           && StaticTexts[i].rect.x+StaticTexts[i].rect.width < appRect.width-appRect.width/4){
             labeldigest = labeldigest + StaticTexts[i].label;
