@@ -16,6 +16,7 @@ desiredCapabilities:
 
 #  iOS Configuration
   platformName: 'iOS'
+  autoAcceptAlerts: true
   #sdkVersion: '10.3'
   #deviceName: 'iPhone 6 Plus'
   #app: 'https://npmcdn.com/ios-app-bootstrap@latest/build/ios-app-bootstrap.zip'
