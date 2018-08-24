@@ -152,7 +152,7 @@ class App extends React.Component {
           { this.renderImages(imgs) }
         </Content>
         <Footer>
-          &copy;&nbsp;<a href={ pkg.homepage }>Macaca Team</a> { new Date().getFullYear() }
+          &copy;&nbsp;<a href={ pkg.homepage }>IOS Crawler</a> { new Date().getFullYear() }
         </Footer>
         <BackTop />
       </Layout>
