@@ -63,6 +63,7 @@ crawlingConfig:
     - 'TabBar'
   exclusiveTypes:
     - 'NavigationBar'
+    - 'StatusBar'
   navigationBackKeyword:
     - '返回'
     - '取消'
