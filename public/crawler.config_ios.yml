@@ -57,12 +57,13 @@ crawlingConfig:
     - 'SecureTextField'
   horizontalScrollTypes:
     - 'PageIndicator'
+    - 'ScrollView'
   verticalScrollTypes:
     - 'ScrollView'
   tabBarTypes:
     - 'TabBar'
   exclusiveTypes:
-    - 'NavigationBar'
+#    - 'NavigationBar'
     - 'StatusBar'
   navigationBackKeyword:
     - '返回'
